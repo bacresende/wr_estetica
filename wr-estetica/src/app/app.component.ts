@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +13,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'wr-estetica';
+
+
 }

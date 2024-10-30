@@ -1,0 +1,49 @@
+<div class="container-login">
+  <p-card header="Faça seu login" [style]="{ color: '#3B82F6' }">
+    <div class="card">
+      <p-inputGroup>
+        <p-inputGroupAddon> &#64; </p-inputGroupAddon>
+        <input pInputText placeholder="Digite seu e-mail" />
+      </p-inputGroup>
+      <p-inputGroup>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+          "
+        >
+          <p-inputGroupAddon> <i class="pi pi-lock"></i></p-inputGroupAddon>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            pInputText
+            placeholder="Digite sua senha"
+          />
+          <i
+            [class]="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"
+            (click)="mostrarSenha()"
+          ></i>
+        </div>
+      </p-inputGroup>
+
+      <!-- <span class="font-bold block mb-2">Phone</span>
+      <p-inputMask
+        mask="(999) 9 9999-9999"
+        [(ngModel)]="value2"
+        placeholder="(999) 9 9999-9999"
+      /> -->
+
+      <button
+        pButton
+        pRipple
+        class="button"
+        label="Login"
+        size="small"
+        icon="pi pi-user"
+        (onClick)="mostrarValor()"
+      ></button>
+    </div>
+  </p-card>
+</div>
