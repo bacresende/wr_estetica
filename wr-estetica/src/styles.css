@@ -2,9 +2,16 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-
 /* Reset ou configurações iniciais de estilo, se houver */
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
 
 /* Exemplo de aplicação de tamanhos */
 body {

@@ -4,5 +4,5 @@ import { CadastrarUsuarioComponent } from './modules/pages/cadastrar-usuario/cad
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent },
+  { path: 'criar-conta', component: CadastrarUsuarioComponent },
 ];

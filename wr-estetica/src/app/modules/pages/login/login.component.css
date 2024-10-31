@@ -1,22 +1,37 @@
-.container-login {
+:host {
+  height: 100vh;
+  height: 100dvh;
+  background: url("https://wallpapers.com/images/hd/conrad-maldives-rangali-island-beach-night-zkyi17hj60ehn9qa.jpg");
+  background-size: cover; /* Faz a imagem cobrir todo o container */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  height: 100vh;
-  background: url('https://wallpapers.com/images/hd/conrad-maldives-rangali-island-beach-night-zkyi17hj60ehn9qa.jpg');
-  background-size: cover; /* Faz a imagem cobrir todo o container */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat;
+  flex-direction: column;
+}
+
+.container-login {
+  padding: 1rem;
 }
 
 .card {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
 }
 
-.button{
+.custom-icon {
+  font-size: 1.6rem; /* Altere para o tamanho desejado */
+  align-self: center;
+  margin-left: 1rem;
+}
+
+.button {
   width: 100%;
+}
+
+span {
+  cursor: pointer;
 }
