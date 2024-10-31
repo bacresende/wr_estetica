@@ -1,7 +1,7 @@
 :host {
   height: 100vh;
   height: 100dvh;
-  background: url("https://wallpapers.com/images/hd/conrad-maldives-rangali-island-beach-night-zkyi17hj60ehn9qa.jpg");
+  background: url("../../../../assets/estetica.jpeg");
   background-size: cover; /* Faz a imagem cobrir todo o container */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat;
