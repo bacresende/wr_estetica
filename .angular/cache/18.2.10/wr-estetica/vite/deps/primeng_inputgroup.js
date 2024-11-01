@@ -1,11 +1,11 @@
 import {
   SharedModule
-} from "./chunk-4J6X4IH5.js";
+} from "./chunk-XDH5CEQ2.js";
 import {
   CommonModule,
   NgClass,
   NgStyle
-} from "./chunk-OR4AOSCE.js";
+} from "./chunk-DNXC76PZ.js";
 import {
   Component,
   Input,
@@ -20,7 +20,7 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵproperty
-} from "./chunk-WVGQZYRG.js";
+} from "./chunk-636JQ65A.js";
 
 // node_modules/primeng/fesm2022/primeng-inputgroup.mjs
 var _c0 = ["*"];

@@ -2036,6 +2036,7 @@ var asapScheduler = new AsapScheduler(AsapAction);
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/async.js
 var asyncScheduler = new AsyncScheduler(AsyncAction);
+var async = asyncScheduler;
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/QueueAction.js
 var QueueAction = function(_super) {
@@ -2800,6 +2801,11 @@ var SequenceError = createErrorClass(function(_super) {
   };
 });
 
+// node_modules/rxjs/dist/esm5/internal/util/isDate.js
+function isValidDate(value) {
+  return value instanceof Date && !isNaN(value);
+}
+
 // node_modules/rxjs/dist/esm5/internal/operators/timeout.js
 var TimeoutError = createErrorClass(function(_super) {
   return function TimeoutErrorImpl(info) {
@@ -3084,6 +3090,41 @@ function forkJoin() {
     }
   });
   return resultSelector ? result.pipe(mapOneOrManyArgs(resultSelector)) : result;
+}
+
+// node_modules/rxjs/dist/esm5/internal/observable/timer.js
+function timer(dueTime, intervalOrScheduler, scheduler) {
+  if (dueTime === void 0) {
+    dueTime = 0;
+  }
+  if (scheduler === void 0) {
+    scheduler = async;
+  }
+  var intervalDuration = -1;
+  if (intervalOrScheduler != null) {
+    if (isScheduler(intervalOrScheduler)) {
+      scheduler = intervalOrScheduler;
+    } else {
+      intervalDuration = intervalOrScheduler;
+    }
+  }
+  return new Observable(function(subscriber) {
+    var due = isValidDate(dueTime) ? +dueTime - scheduler.now() : dueTime;
+    if (due < 0) {
+      due = 0;
+    }
+    var n = 0;
+    return scheduler.schedule(function() {
+      if (!subscriber.closed) {
+        subscriber.next(n++);
+        if (0 <= intervalDuration) {
+          this.schedule(void 0, intervalDuration);
+        } else {
+          subscriber.complete();
+        }
+      }
+    }, due);
+  });
 }
 
 // node_modules/rxjs/dist/esm5/internal/observable/never.js
@@ -27044,6 +27085,7 @@ export {
   concat,
   defer,
   forkJoin,
+  timer,
   filter,
   catchError,
   concatMap,
@@ -27571,4 +27613,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-WVGQZYRG.js.map
+//# sourceMappingURL=chunk-636JQ65A.js.map

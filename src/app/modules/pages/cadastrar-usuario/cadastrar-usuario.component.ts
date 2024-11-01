@@ -7,6 +7,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { CalendarModule } from "primeng/calendar";
 import { CardModule } from "primeng/card";
@@ -17,6 +18,8 @@ import { InputMaskModule } from "primeng/inputmask";
 import { InputTextModule } from "primeng/inputtext";
 import { PanelModule } from "primeng/panel";
 import { PasswordModule } from "primeng/password";
+import { RippleModule } from "primeng/ripple";
+import { ToastModule } from "primeng/toast";
 import { TooltipModule } from "primeng/tooltip";
 
 @Component({
@@ -35,8 +38,11 @@ import { TooltipModule } from "primeng/tooltip";
     FieldsetModule,
     ReactiveFormsModule,
     CalendarModule,
-    PanelModule
+    PanelModule,
+    ToastModule,
+    RippleModule,
   ],
+  providers: [MessageService],
   templateUrl: "./cadastrar-usuario.component.html",
   styleUrl: "./cadastrar-usuario.component.css",
 })
@@ -48,7 +54,8 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -121,6 +128,12 @@ export class CadastrarUsuarioComponent implements OnInit {
     console.log("fazer cadastro");
     if (this.formularioCadastro.valid) {
       console.log(this.formularioCadastro.value);
+    } else {
+      this.messageService.add({
+        severity: "warn",
+        summary: "Ops",
+        detail: "Há campos em branco",
+      });
     }
   }
 

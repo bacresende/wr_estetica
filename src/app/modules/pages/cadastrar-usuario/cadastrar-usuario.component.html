@@ -1,4 +1,5 @@
-<form [formGroup]="formularioCadastro" ((submit))="fazerCadastro()">
+<form [formGroup]="formularioCadastro" (submit)="fazerCadastro()">
+  <p-toast />
   <div class="container-login">
     <p-card header="Crie sua conta" [style]="{ 'color': '#3B82F6' }">
       <p-fieldset legend="Usuário" [toggleable]="true">

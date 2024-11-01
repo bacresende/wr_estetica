@@ -6,11 +6,11 @@ import {
   PrimeNGConfig,
   UniqueComponentId,
   zindexutils
-} from "./chunk-4J6X4IH5.js";
+} from "./chunk-XDH5CEQ2.js";
 import {
   CommonModule,
   isPlatformBrowser
-} from "./chunk-OR4AOSCE.js";
+} from "./chunk-DNXC76PZ.js";
 import {
   Directive,
   ElementRef,
@@ -35,7 +35,7 @@ import {
   ɵɵdirectiveInject,
   ɵɵlistener,
   ɵɵresolveDocument
-} from "./chunk-WVGQZYRG.js";
+} from "./chunk-636JQ65A.js";
 
 // node_modules/primeng/fesm2022/primeng-tooltip.mjs
 var Tooltip = class _Tooltip {
