@@ -11,12 +11,12 @@ import {
   trigger
 } from "./chunk-7YKX5YAY.js";
 import {
-  BaseIcon
-} from "./chunk-E2LANA65.js";
-import {
   Ripple,
   RippleModule
 } from "./chunk-OTJKNED5.js";
+import {
+  BaseIcon
+} from "./chunk-E2LANA65.js";
 import {
   DomHandler
 } from "./chunk-BUGEQH7Q.js";

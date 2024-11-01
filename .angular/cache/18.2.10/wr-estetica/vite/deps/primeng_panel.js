@@ -9,11 +9,11 @@ import {
   transition,
   trigger
 } from "./chunk-7YKX5YAY.js";
-import "./chunk-E2LANA65.js";
 import {
   Ripple,
   RippleModule
 } from "./chunk-OTJKNED5.js";
+import "./chunk-E2LANA65.js";
 import "./chunk-BUGEQH7Q.js";
 import {
   CommonModule,

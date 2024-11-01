@@ -3,9 +3,9 @@
   <div class="container-login">
     <p-card header="Crie sua conta" [style]="{ color: '#3B82F6' }">
       <p-fieldset
-        [style]="{'margin-bottom': '1.5rem', 'padding': '0px'}"
+        [style]="{ 'margin-bottom': '1.5rem', padding: '0px' }"
         legend="Usuário"
-        [toggleable]="true"
+        [toggleable]="false"
       >
         <div class="card">
           <p-inputGroup>
@@ -17,15 +17,18 @@
               placeholder="Seu nome"
             />
           </p-inputGroup>
-          <p-inputGroup>
-            <p-inputGroupAddon> 123 </p-inputGroupAddon>
-            <input
-              pInputText
-              type="text"
+
+          <div style="display: flex; width: 100%; box-sizing: border-box">
+            <p-inputGroupAddon> 123</p-inputGroupAddon>
+            <p-inputMask
+              inputmode="numeric"
               formControlName="cpf"
+              mask="999.999.999-99"
               placeholder="Seu CPF"
+              [style]="{'width': '252px',}"
             />
-          </p-inputGroup>
+          </div>
+
           <p-inputGroup>
             <p-inputGroupAddon>
               <i class="pi pi-shopping-bag"></i>
@@ -95,23 +98,29 @@
               formControlName="telefone"
               mask="(99) 9 9999-9999"
               placeholder="Seu telefone"
+              [style]="{'width': '252px',}"
             />
           </div>
         </div>
       </p-fieldset>
 
-      <p-fieldset [style]="{'padding': '0px'}" legend="Endereço" [toggleable]="true">
+      <p-fieldset
+        [style]="{ padding: '0px' }"
+        legend="Endereço"
+        [toggleable]="false"
+      >
         <div class="card">
-          <p-inputGroup>
-            <p-inputGroupAddon> <i class="pi pi-map"></i> </p-inputGroupAddon>
-            <input
-              pInputText
+          <div style="display: flex; width: 100%; box-sizing: border-box">
+            <p-inputGroupAddon> 123</p-inputGroupAddon>
+            <p-inputMask
+              inputmode="numeric"
               formControlName="cep"
-              type="text"
-              maxlength="8"
+              mask="99999-999"
               placeholder="Seu CEP"
+              [style]="{'width': '252px',}"
+              (ngModelChange)="buscarCep($event)"
             />
-          </p-inputGroup>
+          </div>
 
           <p-inputGroup>
             <p-inputGroupAddon> <i class="pi pi-map"></i> </p-inputGroupAddon>

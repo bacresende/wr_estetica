@@ -24,6 +24,7 @@ import { TooltipModule } from "primeng/tooltip";
 import { CadastroUsuario } from "../../models/cadastro-usuario.model";
 import { DatePipe } from "@angular/common";
 import { UsuarioService } from "../../services/usuario/usuario.service";
+import { CepService } from "../../services/apiCep/cep.service";
 
 @Component({
   selector: "app-cadastrar-usuario",
@@ -60,7 +61,8 @@ export class CadastrarUsuarioComponent implements OnInit {
     private readonly fb: FormBuilder,
     private readonly messageService: MessageService,
     private readonly datePipe: DatePipe,
-    private readonly usuarioService: UsuarioService
+    private readonly usuarioService: UsuarioService,
+    private readonly cepService: CepService
   ) {}
 
   ngOnInit(): void {
@@ -147,14 +149,13 @@ export class CadastrarUsuarioComponent implements OnInit {
             this.irParaHome();
           }
         },
-        error: (error)=>{
+        error: (error) => {
           this.messageService.add({
             severity: "warn",
             summary: "Ops",
             detail: error,
           });
-          
-        }
+        },
       });
     } else {
       this.messageService.add({
@@ -208,5 +209,21 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   public mostrarSenha() {
     this.showPassword = !this.showPassword;
+  }
+
+  public buscarCep(cep: string) {
+    cep = cep.replaceAll(".", "").replaceAll("-", "").replaceAll("_", "");
+    console.log(cep.length);
+
+    if (cep.length === 8) {
+      this.cepService.getDadosCep(cep).subscribe((retornoCep)=>{
+        
+        this.formularioCadastro.get('endereco')?.setValue(retornoCep.logradouro);
+        this.formularioCadastro.get('bairro')?.setValue(retornoCep.bairro);
+        this.formularioCadastro.get('complemento')?.setValue(retornoCep.complemento);
+        this.formularioCadastro.get('cidade')?.setValue(retornoCep.localidade);
+        this.formularioCadastro.get('estado')?.setValue(retornoCep.estado);
+      });
+    }
   }
 }

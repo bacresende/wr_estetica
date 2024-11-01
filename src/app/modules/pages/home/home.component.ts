@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,11 @@ import { environment } from '../../../../environments/environment';
 })
 export class HomeComponent implements OnInit{
   ngOnInit(): void {
-    console.log(environment.apiKey);
+    Swal.fire({
+      title: "Top demais!",
+      text: "Em breve teremos mais coisas por aqui!",
+      icon: "success"
+    });
   }
 
 }
