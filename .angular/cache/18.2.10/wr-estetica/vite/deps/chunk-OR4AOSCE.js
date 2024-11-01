@@ -4946,6 +4946,7 @@ export {
   Location,
   parseCookieValue,
   NgClass,
+  NgForOf,
   NgIf,
   NgStyle,
   NgTemplateOutlet,
@@ -4965,4 +4966,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-FBL5RQCI.js.map
+//# sourceMappingURL=chunk-OR4AOSCE.js.map

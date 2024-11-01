@@ -1,6 +1,6 @@
 <form [formGroup]="formularioCadastro" ((submit))="fazerCadastro()">
   <div class="container-login">
-    <p-card header="Crie sua conta" [style]="{ color: '#3B82F6' }">
+    <p-card header="Crie sua conta" [style]="{ 'color': '#3B82F6' }">
       <p-fieldset legend="Usuário" [toggleable]="true">
         <div class="card">
           <p-inputGroup>
@@ -9,7 +9,7 @@
               pInputText
               type="text"
               formControlName="nome"
-              placeholder="Digite seu nome"
+              placeholder="Seu nome"
             />
           </p-inputGroup>
           <p-inputGroup>
@@ -18,25 +18,40 @@
               pInputText
               type="text"
               formControlName="cpf"
-              placeholder="Digite seu cpf"
+              placeholder="Seu cpf"
             />
           </p-inputGroup>
           <p-inputGroup>
-            <p-inputGroupAddon> <i class="pi pi-shopping-bag"></i> </p-inputGroupAddon>
+            <p-inputGroupAddon>
+              <i class="pi pi-shopping-bag"></i>
+            </p-inputGroupAddon>
             <input
               pInputText
               type="text"
               formControlName="ocupacao"
-              placeholder="Digite sua ocupação profissional"
+              placeholder="Sua ocupação profissional"
             />
           </p-inputGroup>
+          <p-inputGroup>
+            <p-inputGroupAddon> <i class="pi pi-gift"></i> </p-inputGroupAddon>
+            <p-calendar
+              [showIcon]="true"
+              [locale]="ptbrConfiguracao"
+              dateFormat="dd/mm/yy"
+              [readonlyInput]="true"
+              formControlName="dataNasc"
+              placeholder="Sua data de nascimento"
+              inputId="birth_date"
+            />
+          </p-inputGroup>
+
           <p-inputGroup>
             <p-inputGroupAddon> &#64; </p-inputGroupAddon>
             <input
               type="email"
               formControlName="email"
               pInputText
-              placeholder="Digite seu e-mail"
+              placeholder="Seu e-mail"
             />
           </p-inputGroup>
 
@@ -54,7 +69,7 @@
                 [type]="showPassword ? 'text' : 'password'"
                 pInputText
                 formControlName="senha"
-                placeholder="Digite sua senha"
+                placeholder="Sua senha"
               />
               <i
                 [pTooltip]="showPassword ? 'Ocultar senha' : 'Mostrar senha'"
@@ -74,9 +89,10 @@
               inputmode="numeric"
               formControlName="telefone"
               mask="(99) 9 9999-9999"
-              placeholder="Digite seu telefone"
+              placeholder="Seu telefone"
             />
           </div>
+         
         </div>
       </p-fieldset>
 
@@ -88,7 +104,7 @@
               pInputText
               formControlName="cep"
               type="text"
-              placeholder="Digite seu CEP"
+              placeholder="Seu CEP"
             />
           </p-inputGroup>
 
@@ -98,7 +114,7 @@
               pInputText
               formControlName="endereco"
               type="text"
-              placeholder="Digite seu Endereço"
+              placeholder="Seu Endereço"
             />
           </p-inputGroup>
 
@@ -108,7 +124,7 @@
               pInputText
               formControlName="numeroResidencia"
               type="text"
-              placeholder="Digite seu número residencial"
+              placeholder="Seu número residencial"
             />
           </p-inputGroup>
 
@@ -118,7 +134,7 @@
               pInputText
               formControlName="bairro"
               type="text"
-              placeholder="Digite seu bairro"
+              placeholder="Seu bairro"
             />
           </p-inputGroup>
 
@@ -128,7 +144,7 @@
               pInputText
               formControlName="complemento"
               type="text"
-              placeholder="Digite seu complemento"
+              placeholder="Seu complemento"
             />
           </p-inputGroup>
 
@@ -138,7 +154,7 @@
               pInputText
               formControlName="cidade"
               type="text"
-              placeholder="Digite sua cidade"
+              placeholder="Sua cidade"
             />
           </p-inputGroup>
 
@@ -148,7 +164,7 @@
               pInputText
               formControlName="estado"
               type="text"
-              placeholder="Digite seu estado"
+              placeholder="Seu estado"
             />
           </p-inputGroup>
 
@@ -158,7 +174,7 @@
               pInputText
               formControlName="pais"
               type="text"
-              placeholder="Digite seu país"
+              placeholder="Seu país"
             />
           </p-inputGroup>
         </div>

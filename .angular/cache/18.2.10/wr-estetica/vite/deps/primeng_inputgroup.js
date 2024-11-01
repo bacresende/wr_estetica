@@ -5,7 +5,7 @@ import {
   CommonModule,
   NgClass,
   NgStyle
-} from "./chunk-FBL5RQCI.js";
+} from "./chunk-OR4AOSCE.js";
 import {
   Component,
   Input,
