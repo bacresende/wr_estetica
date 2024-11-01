@@ -1,13 +1,6 @@
 import {
   TimesIcon
-} from "./chunk-AQP7U4JL.js";
-import {
-  AutoFocus,
-  AutoFocusModule
-} from "./chunk-EAKB4SI6.js";
-import {
-  DomHandler
-} from "./chunk-BUGEQH7Q.js";
+} from "./chunk-6B5LOFD7.js";
 import {
   InputText,
   InputTextModule
@@ -15,6 +8,14 @@ import {
 import {
   NG_VALUE_ACCESSOR
 } from "./chunk-RCOERFJJ.js";
+import {
+  AutoFocus,
+  AutoFocusModule
+} from "./chunk-MUINIQCG.js";
+import "./chunk-UP4RW5IG.js";
+import {
+  DomHandler
+} from "./chunk-BUGEQH7Q.js";
 import {
   PrimeNGConfig,
   PrimeTemplate,
