@@ -223,6 +223,7 @@ export class CadastrarUsuarioComponent implements OnInit {
         this.formularioCadastro.get('complemento')?.setValue(retornoCep.complemento);
         this.formularioCadastro.get('cidade')?.setValue(retornoCep.localidade);
         this.formularioCadastro.get('estado')?.setValue(retornoCep.estado);
+        this.formularioCadastro.get('pais')?.setValue('Brasil');
       });
     }
   }
