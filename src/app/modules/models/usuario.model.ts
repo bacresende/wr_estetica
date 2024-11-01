@@ -1,11 +1,10 @@
 export interface Usuario {
   nome: string;
   email: string;
-  preCadastro: boolean;
   telefone: string;
   nasc: string;
   senha: string;
   cpf: string;
   ocupacaoProfissional: string;
-  funcao: "ADM" | "CLIENTE" | "FUNC";
+  funcao?: "ADM" | "CLIENTE" | "FUNC";
 }

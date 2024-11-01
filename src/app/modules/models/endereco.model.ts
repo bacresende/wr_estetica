@@ -1,9 +1,9 @@
 export interface Endereco {
   cep: string;
   endereco: string;
-  numeroResidencia: "Apt 502";
+  numeroResidencia: string;
   bairro: string;
-  complemento: "não informado";
+  complemento: string;
   cidade: string;
   estado: string;
   pais: string;

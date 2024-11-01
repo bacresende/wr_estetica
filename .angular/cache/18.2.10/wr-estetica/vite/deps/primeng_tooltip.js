@@ -3,14 +3,14 @@ import {
   DomHandler
 } from "./chunk-BUGEQH7Q.js";
 import {
+  CommonModule,
+  isPlatformBrowser
+} from "./chunk-XM6K5AGU.js";
+import {
   PrimeNGConfig,
   UniqueComponentId,
   zindexutils
-} from "./chunk-XDH5CEQ2.js";
-import {
-  CommonModule,
-  isPlatformBrowser
-} from "./chunk-DNXC76PZ.js";
+} from "./chunk-RTSEGPNS.js";
 import {
   Directive,
   ElementRef,
@@ -23,7 +23,6 @@ import {
   Renderer2,
   TemplateRef,
   ViewContainerRef,
-  __spreadValues,
   booleanAttribute,
   numberAttribute,
   setClassMetadata,
@@ -35,7 +34,11 @@ import {
   ɵɵdirectiveInject,
   ɵɵlistener,
   ɵɵresolveDocument
-} from "./chunk-636JQ65A.js";
+} from "./chunk-VVFYCKOV.js";
+import "./chunk-66JPAEYR.js";
+import {
+  __spreadValues
+} from "./chunk-WDMUDEB6.js";
 
 // node_modules/primeng/fesm2022/primeng-tooltip.mjs
 var Tooltip = class _Tooltip {

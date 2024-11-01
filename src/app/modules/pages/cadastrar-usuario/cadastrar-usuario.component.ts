@@ -21,6 +21,9 @@ import { PasswordModule } from "primeng/password";
 import { RippleModule } from "primeng/ripple";
 import { ToastModule } from "primeng/toast";
 import { TooltipModule } from "primeng/tooltip";
+import { CadastroUsuario } from "../../models/cadastro-usuario.model";
+import { DatePipe } from "@angular/common";
+import { UsuarioService } from "../../services/usuario/usuario.service";
 
 @Component({
   selector: "app-cadastrar-usuario",
@@ -42,7 +45,7 @@ import { TooltipModule } from "primeng/tooltip";
     ToastModule,
     RippleModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, DatePipe],
   templateUrl: "./cadastrar-usuario.component.html",
   styleUrl: "./cadastrar-usuario.component.css",
 })
@@ -55,10 +58,18 @@ export class CadastrarUsuarioComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly fb: FormBuilder,
-    private messageService: MessageService
+    private readonly messageService: MessageService,
+    private readonly datePipe: DatePipe,
+    private readonly usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
+    this.criarFormulario();
+
+    this.configurarLocaleData();
+  }
+
+  private criarFormulario(): void {
     this.formularioCadastro = this.fb.group({
       nome: this.fb.control("", [Validators.required]),
       cpf: this.fb.control("", [Validators.required]),
@@ -77,7 +88,9 @@ export class CadastrarUsuarioComponent implements OnInit {
       estado: this.fb.control("", [Validators.required]),
       pais: this.fb.control(null, [Validators.required]),
     });
+  }
 
+  public configurarLocaleData(): void {
     this.ptbrConfiguracao = {
       firstDayOfWeek: 1,
       dayNames: [
@@ -125,9 +138,24 @@ export class CadastrarUsuarioComponent implements OnInit {
   }
 
   public fazerCadastro() {
-    console.log("fazer cadastro");
     if (this.formularioCadastro.valid) {
-      console.log(this.formularioCadastro.value);
+      const cadastroUsuario: CadastroUsuario = this.setarObjetoUsuario();
+      this.usuarioService.cadastrarUsuario(cadastroUsuario).subscribe({
+        next: (retorno) => {
+          console.log(retorno);
+          if (retorno) {
+            this.irParaHome();
+          }
+        },
+        error: (error)=>{
+          this.messageService.add({
+            severity: "warn",
+            summary: "Ops",
+            detail: error,
+          });
+          
+        }
+      });
     } else {
       this.messageService.add({
         severity: "warn",
@@ -135,6 +163,39 @@ export class CadastrarUsuarioComponent implements OnInit {
         detail: "Há campos em branco",
       });
     }
+  }
+
+  public setarObjetoUsuario(): CadastroUsuario {
+    const dataNascimento = this.datePipe.transform(
+      this.formularioCadastro.value.dataNasc,
+      "dd/MM/yyyy"
+    );
+
+    return {
+      usuario: {
+        nome: this.formularioCadastro.value.nome,
+        email: this.formularioCadastro.value.email,
+        telefone: this.formularioCadastro.value.telefone,
+        nasc: dataNascimento!,
+        senha: this.formularioCadastro.value.senha,
+        cpf: this.formularioCadastro.value.cpf,
+        ocupacaoProfissional: this.formularioCadastro.value.ocupacao,
+      },
+      endereco: {
+        cep: this.formularioCadastro.value.cep,
+        endereco: this.formularioCadastro.value.endereco,
+        numeroResidencia: this.formularioCadastro.value.numeroResidencia,
+        bairro: this.formularioCadastro.value.bairro,
+        complemento: this.formularioCadastro.value.complemento,
+        cidade: this.formularioCadastro.value.cidade,
+        estado: this.formularioCadastro.value.estado,
+        pais: this.formularioCadastro.value.pais,
+      },
+    };
+  }
+
+  public irParaHome() {
+    this.router.navigate(["/inicio"]);
   }
 
   public fazerLogin() {

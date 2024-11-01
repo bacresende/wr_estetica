@@ -1,8 +1,12 @@
 <form [formGroup]="formularioCadastro" (submit)="fazerCadastro()">
   <p-toast />
   <div class="container-login">
-    <p-card header="Crie sua conta" [style]="{ 'color': '#3B82F6' }">
-      <p-fieldset legend="Usuário" [toggleable]="true">
+    <p-card header="Crie sua conta" [style]="{ color: '#3B82F6' }">
+      <p-fieldset
+        [style]="{'margin-bottom': '1.5rem', 'padding': '0px'}"
+        legend="Usuário"
+        [toggleable]="true"
+      >
         <div class="card">
           <p-inputGroup>
             <p-inputGroupAddon> <i class="pi pi-user"></i> </p-inputGroupAddon>
@@ -19,7 +23,7 @@
               pInputText
               type="text"
               formControlName="cpf"
-              placeholder="Seu cpf"
+              placeholder="Seu CPF"
             />
           </p-inputGroup>
           <p-inputGroup>
@@ -93,11 +97,10 @@
               placeholder="Seu telefone"
             />
           </div>
-         
         </div>
       </p-fieldset>
 
-      <p-fieldset legend="Endereço" [toggleable]="true">
+      <p-fieldset [style]="{'padding': '0px'}" legend="Endereço" [toggleable]="true">
         <div class="card">
           <p-inputGroup>
             <p-inputGroupAddon> <i class="pi pi-map"></i> </p-inputGroupAddon>
@@ -105,6 +108,7 @@
               pInputText
               formControlName="cep"
               type="text"
+              maxlength="8"
               placeholder="Seu CEP"
             />
           </p-inputGroup>

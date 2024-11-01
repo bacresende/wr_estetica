@@ -1,15 +1,17 @@
-<p-toast />
+<form [formGroup]="formularioLogin">
+  <p-toast />
 <div class="container-login">
   <p-card header="Faça seu login" [style]="{ color: '#3B82F6' }">
     <div class="card">
       <p-inputGroup>
         <p-inputGroupAddon> &#64; </p-inputGroupAddon>
-        <input type="email" pInputText placeholder="Digite seu e-mail" />
+        <input type="email" formControlName="email" pInputText placeholder="Digite seu e-mail" />
       </p-inputGroup>
       <p-inputGroup>
         <p-inputGroupAddon> <i class="pi pi-lock"></i></p-inputGroupAddon>
         <input
           [type]="showPassword ? 'text' : 'password'"
+          formControlName="senha"
           pInputText
           placeholder="Digite sua senha"
         />
@@ -58,3 +60,5 @@
     </div>
   </p-card>
 </div>
+
+</form>
