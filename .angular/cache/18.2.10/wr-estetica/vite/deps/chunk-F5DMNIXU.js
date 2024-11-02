@@ -1,9 +1,9 @@
 import {
-  AutoFocus
-} from "./chunk-L7ZANJZF.js";
-import {
   Ripple
 } from "./chunk-OTJKNED5.js";
+import {
+  AutoFocus
+} from "./chunk-L7ZANJZF.js";
 import {
   BaseIcon
 } from "./chunk-E2LANA65.js";
@@ -1076,8 +1076,9 @@ var ButtonModule = class _ButtonModule {
 })();
 
 export {
+  SpinnerIcon,
   ButtonDirective,
   Button,
   ButtonModule
 };
-//# sourceMappingURL=chunk-IKNKNPIK.js.map
+//# sourceMappingURL=chunk-F5DMNIXU.js.map
