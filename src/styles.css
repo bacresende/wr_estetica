@@ -3,7 +3,14 @@
 @import "primeicons/primeicons.css";
 
 /* Reset ou configurações iniciais de estilo, se houver */
-
+:host{
+  --primary-color: #3B82F6;
+  --secondary-color: #2ecc71;
+  --accent-color: #e74c3c;
+  --bg-color: #f5f7fa;
+  --text-color: #333;
+  --card-bg: #fff;
+}
 * {
   box-sizing: border-box;
 }

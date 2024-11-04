@@ -49,14 +49,13 @@
           >Esqueceu sua senha?</span
         >
       </div>
-      <button
-        pButton
-        pRipple
-        class="button"
+      <p-button
+        [style]="{'width': '100%'}"
         label="Login"
         size="small"
         (click)="fazerLogin()"
-      ></button>
+        [loading]="loadingLogin"
+      ></p-button>
     </div>
   </p-card>
 </div>

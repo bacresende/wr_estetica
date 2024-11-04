@@ -1,117 +1,53 @@
-<header class="dashboard-header">
-    <div class="logo">
-      <img src="assets/logo.png" alt="Logo" />
-      <h1>Dashboard</h1>
-    </div>
-  
-    <div class="search-bar">
-      <input type="text" placeholder="Pesquisar..." />
-      <button type="button" class="search-button">
-        <i class="pi pi-search"></i>
-      </button>
-    </div>
-  
-    <div class="header-icons">
-      <button type="button" class="icon-button">
-        <i class="pi pi-bell"></i>
-      </button>
-      <button type="button" class="icon-button">
-        <i class="pi pi-cog"></i>
-      </button>
-      <button type="button" class="icon-button profile">
-        <i class="pi pi-user"></i>
-      </button>
-    </div>
-  </header>
-  
-<div class="dashboard-container">
-    <!-- Cards de Visão Geral -->
-    <div class="stats-cards">
-      <p-card header="Usuários" class="stat-card">
-        <div class="card-content">
-          <i class="pi pi-users stat-card-icon"></i>
-          <span>2,045</span>
-        </div>
-      </p-card>
-      <p-card header="Vendas" class="stat-card">
-        <div class="card-content">
-          <i class="pi pi-shopping-cart stat-card-icon"></i>
-          <span>$50,123</span>
-        </div>
-      </p-card>
-      <p-card header="Receita" class="stat-card">
-        <div class="card-content">
-          <i class="pi pi-dollar stat-card-icon"></i>
-          <span>$123,456</span>
-        </div>
-      </p-card>
-      <p-card header="Inscrições" class="stat-card">
-        <div class="card-content">
-          <i class="pi pi-user-plus stat-card-icon"></i>
-          <span>324</span>
-        </div>
-      </p-card>
-    </div>
-  
-    <!-- Gráficos -->
-    <div class="charts">
-      <p-card header="Vendas Mensais" class="chart-card">
-        <p-chart type="line" [data]="lineChartData"></p-chart>
-      </p-card>
-      <p-card header="Desempenho por Produto" class="chart-card">
-        <p-chart type="bar" [data]="barChartData"></p-chart>
-      </p-card>
-      <p-card header="Distribuição de Dispositivos" class="chart-card">
-        <p-chart type="doughnut" [data]="doughnutChartData"></p-chart>
-      </p-card>
-    </div>
-  
-    <!-- Tabela de Transações Recentes -->
-    <div class="data-table">
-      <p-card header="Transações Recentes" class="table-card">
-        <p-table [value]="transactions" responsiveLayout="scroll">
-          <ng-template pTemplate="header">
-            <tr>
-              <th>ID Transação</th>
-              <th>Cliente</th>
-              <th>Data</th>
-              <th>Valor</th>
-              <th>Status</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-transaction>
-            <tr>
-              <td>{{ transaction.id }}</td>
-              <td>{{ transaction.customer }}</td>
-              <td>{{ transaction.date }}</td>
-              <td>{{ transaction.amount | currency }}</td>
-              <td>{{ transaction.status }}</td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </p-card>
-    </div>
-  
-    <!-- Relatório de Desempenho -->
-    <div class="performance-report">
-      <p-card header="Relatório de Desempenho" class="report-card">
-        <div class="report-content">
-          <p>Total de Vendas: <span>$500,000</span></p>
-          <p>Crescimento Mensal: <span>12%</span></p>
-          <p>Novos Usuários: <span>1500</span></p>
-        </div>
-      </p-card>
-    </div>
-  
-    <!-- Notificações -->
-    <div class="notifications">
-      <p-card header="Notificações" class="notification-card">
-        <ul>
-          <li>Atualização do sistema programada para amanhã.</li>
-          <li>Novos recursos adicionados ao painel de controle.</li>
-          <li>Relatório financeiro disponível.</li>
-        </ul>
-      </p-card>
-    </div>
+<header>
+  <h1>Wr Estética</h1>
+  <div class="buttons-text">
+    <p-button label="Agendamento" size="small" />
+    <p-button label="Cadastrar cliente" size="small" />
+    <p-button label="Formulários" size="small" />
+    <p-button (mousemove)="finalizarSessao()" label="Sair" [style]="{ color: 'red' }" [link]="true" />
   </div>
+
+  <div class="buttons-icon">
+    <p-button icon="pi pi-ellipsis-v" (click)="menu.toggle($event)"></p-button>
+    <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+  </div>
+</header>
+
+<div class="dashboard-container">
+  <!-- Cards de Visão Geral -->
+
+  <!-- Gráficos -->
+  <p-card header="Vendas Mensais" class="charts">
+      <p-chart type="line" [data]="lineChartData"></p-chart>
+    </p-card>
+ 
+
+  <!-- Tabela de Transações Recentes -->
+  <div class="data-table">
+    <p-card header="Transações Recentes" class="table-card">
+      <p-table [value]="transactions" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID Transação</th>
+            <th>Cliente</th>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-transaction>
+          <tr>
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.customer }}</td>
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.amount | currency }}</td>
+            <td>{{ transaction.status }}</td>
+            <p-tag [value]="transaction.status" [severity]="getSeverity(transaction.status)" />
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+
   
+</div>

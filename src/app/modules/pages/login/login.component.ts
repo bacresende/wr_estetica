@@ -46,6 +46,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit{
   public showPassword: boolean = false;
   public formularioLogin!: FormGroup;
+  public loadingLogin: boolean = false;
 
   constructor(
     private readonly router: Router,
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit{
   public fazerLogin() {
     
     if (this.formularioLogin.valid) {
+      this.loadingLogin = true;
       const {email, senha} = this.formularioLogin.value
       this.usuarioService.logarUsuario(email, senha).subscribe({
         next: (retorno)=>{
@@ -77,12 +79,15 @@ export class LoginComponent implements OnInit{
           }
         },
         error: (error)=>{
+          this.loadingLogin = false;
           this.messageService.add({
             severity: "warn",
             summary: "Ops",
-            detail: error,
+            detail: 'Dados inválidos',
           });
         }
+      
+        
       });
     } else {
       this.messageService.add({
