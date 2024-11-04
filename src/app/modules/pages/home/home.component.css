@@ -48,13 +48,17 @@ header .buttons-icon {
 .dashboard-container {
   margin: 20px;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(2, 1fr);
   /* grid-template-rows: 200px; */
   gap: 20px;
   grid-template-areas: "chart table";
 
   @media (max-width: 1000px) {
+    grid-template-columns: 100%;
+    
     grid-template-areas: "chart" "table";
+    justify-content: center;
     
   }
 }
@@ -64,9 +68,7 @@ header .buttons-icon {
   flex-direction: column; */
 
   grid-area: chart;
-
   @media (max-width: 750) {
-    width: 60%;
     
   }
 }
@@ -75,7 +77,6 @@ header .buttons-icon {
   grid-area: table;
 
   @media (max-width: 750) {
-    width: 50%;
     
   }
 
